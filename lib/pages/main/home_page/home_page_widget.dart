@@ -14,6 +14,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
+import '/components/app_drawer.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({super.key});
@@ -57,6 +58,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
+        drawer: const AppDrawer(),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: Align(
           alignment: AlignmentDirectional(0.0, 1.0),
@@ -137,32 +139,31 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 18.0, 20.0, 0.0),
-                            child: FlutterFlowIconButton(
-                              borderRadius: 20.0,
-                              borderWidth: 1.0,
-                              buttonSize: 80.0,
-                              icon: Icon(
-                                Icons.phone,
-                                color: Color(0xFF39ADD2),
-                                size: 30.0,
+                          Row(
+                            mainAxisSize: MainAxisSize.min, // Займає мінімум місця
+                            children: [
+                              // Кнопка телефона
+                              FlutterFlowIconButton(
+                                borderRadius: 20.0,
+                                buttonSize: 50.0,
+                                icon: Icon(Icons.phone, color: Color(0xFF39ADD2), size: 25.0),
+                                onPressed: () async {
+                                  context.pushNamed('ContactInfo');
+                                },
                               ),
-                              onPressed: () async {
-                                context.pushNamed(
-                                  ContactInfoWidget.routeName,
-                                  extra: <String, dynamic>{
-                                    '__transition_info__': TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
-                                      duration: Duration(milliseconds: 300),
-                                    ),
-                                  },
-                                );
-                              },
-                            ),
+
+                              SizedBox(width: 5.0), // Регулюй відстань між кнопками тут
+
+                              // Кнопка меню
+                              FlutterFlowIconButton(
+                                borderRadius: 20.0,
+                                buttonSize: 50.0,
+                                icon: Icon(Icons.menu_rounded, color: Color(0xFF39ADD2), size: 30.0),
+                                onPressed: () {
+                                  scaffoldKey.currentState!.openDrawer();
+                                },
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -980,6 +981,78 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSideMenu(BuildContext context) {
+    return Drawer(
+      child: Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            // Заголовок з інформацією про студента (Завдання 2.b)
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).primary,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Гулеватий Євген, Ямполь Владислав',
+                    style: FlutterFlowTheme.of(context).headlineSmall.override(
+                      fontFamily: 'Roboto',
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    'Група: ІПЗ-23-1',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Roboto',
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // Пункт 1: Перехід на іншу сторінку (Завдання 2.a)
+            ListTile(
+              leading: Icon(Icons.person, color: FlutterFlowTheme.of(context).primaryText),
+              title: Text('Профіль'),
+              onTap: () {
+                context.pushNamed(ProfileWidget.routeName);
+              },
+            ),
+
+            // Пункт 2: Зміна орієнтації (Завдання 2.c)
+            ListTile(
+              leading: Icon(Icons.screen_rotation, color: FlutterFlowTheme.of(context).primaryText),
+              title: Text('Альбомний режим'),
+              onTap: () async {
+                await SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.landscapeLeft,
+                ]);
+                Navigator.pop(context); // Закрити меню
+              },
+            ),
+
+            // Пункт 3: Повернення орієнтації
+            ListTile(
+              leading: Icon(Icons.stay_primary_portrait, color: FlutterFlowTheme.of(context).primaryText),
+              title: Text('Портретний режим'),
+              onTap: () async {
+                await SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.portraitUp,
+                ]);
+                Navigator.pop(context);
+              },
+            ),
+          ],
         ),
       ),
     );
