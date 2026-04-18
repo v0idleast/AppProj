@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "831243651820",
+    "project_id": "site-app-y2acg1",
+    "storage_bucket": "site-app-y2acg1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831243651820:android:33dc5d351df8b1a11af3c9",
+        "android_client_info": {
+          "package_name": "com.mycompany.rybolovapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831243651820-j7uk0tvj6ak4rhvufsbvedtt44hr50ke.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.rybolovapp",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "831243651820-ui9o4m64n4imdduaidh06jo23ps7hhps.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.rybolovapp",
+            "certificate_hash": "4a8d8fc44ccfad914fded349f0830061ed44c3a0"
+          }
+        },
+        {
+          "client_id": "831243651820-9rcojjv8q59m0e1ik7mo4foehqldl8h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPnhr2TBGWI6aaPYsCAq5GcUtHlsjIGEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831243651820-9rcojjv8q59m0e1ik7mo4foehqldl8h1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "831243651820-338ntn7jmb3vrcffapatr29mckdcee83.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.rybolovapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
