@@ -28,7 +28,7 @@ class _LoyalProgressWidgetState extends State<LoyalProgressWidget> {
 
   int? _lastPoints;
 
-  // Функція для показу Toast з малюнком риби (вимога Лаби №5)
+  // Функція для показу Toast
   void _showLevelUpToast(String levelName) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

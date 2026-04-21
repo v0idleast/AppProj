@@ -152,7 +152,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 },
                               ),
 
-                              SizedBox(width: 5.0), // Регулюй відстань між кнопками тут
+                              SizedBox(width: 5.0),
 
                               // Кнопка меню
                               FlutterFlowIconButton(
@@ -993,7 +993,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            // Заголовок з інформацією про студента (Завдання 2.b)
             DrawerHeader(
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primary,
@@ -1020,7 +1019,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
             ),
 
-            // Пункт 1: Перехід на іншу сторінку (Завдання 2.a)
             ListTile(
               leading: Icon(Icons.person, color: FlutterFlowTheme.of(context).primaryText),
               title: Text('Профіль'),
@@ -1029,7 +1027,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               },
             ),
 
-            // Пункт 2: Зміна орієнтації (Завдання 2.c)
             ListTile(
               leading: Icon(Icons.screen_rotation, color: FlutterFlowTheme.of(context).primaryText),
               title: Text('Альбомний режим'),
@@ -1041,7 +1038,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               },
             ),
 
-            // Пункт 3: Повернення орієнтації
+            // Повернення орієнтації
             ListTile(
               leading: Icon(Icons.stay_primary_portrait, color: FlutterFlowTheme.of(context).primaryText),
               title: Text('Портретний режим'),
